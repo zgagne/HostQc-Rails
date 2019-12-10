@@ -21,12 +21,6 @@ jobs:
             - v1-dependencies-
 
       - run:
-          name: Install Bundler 2.0.2
-          command: |
-            run: gem uninstall bundler
-            run: gem install bundler:2.0.2
-
-      - run:
           name: install dependencies
           command: |
             bundle install --jobs=4 --retry=3 --path vendor/bundle
@@ -35,6 +29,12 @@ jobs:
           paths:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+
+      - run:
+          name: Install Bundler 2.0.2
+          command: |
+            run: gem uninstall bundler
+            run: gem install bundler:2.0.2
 
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
