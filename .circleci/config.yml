@@ -23,7 +23,7 @@ jobs:
       - run:
           name: Install Bundler 2.0.2
           command: |
-            run: gem uninstall bundler | y
+            run: gem uninstall bundler
             run: gem install bundler:2.0.2
 
       - run:
