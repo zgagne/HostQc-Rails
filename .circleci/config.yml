@@ -24,6 +24,7 @@ jobs:
           name: Install Bundler 2.0.2
           command: |
             run: gem uninstall bundler
+            run: y
             run: gem install bundler:2.0.2
 
       - run:
